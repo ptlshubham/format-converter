@@ -1,0 +1,85 @@
+{
+  "request_id": "BG-20260917-009",
+  "timestamp": "2026-09-17T17:55:41Z",
+  "input_width": 1536,
+  "input_height": 1024,
+  "total_pixels": 1572864,
+  "format": "PNG",
+  "model_info": {
+    "name": "BiRefNet General (FP16 ONNX)",
+    "file": "model_fp16.onnx",
+    "type": "BiRefNet Segmentation",
+    "input_res": "1024 \u00d7 1024",
+    "output_res": "1024 \u00d7 1024",
+    "provider": "CPUExecutionProvider",
+    "device": "CPU",
+    "reused": "YES",
+    "load_ms": 13887.77
+  },
+  "timings_ms": {
+    "decode_ms": 68.87,
+    "inference_ms": 103649.63,
+    "mask_quality_ms": 41.85,
+    "trimap_ms": 50.74,
+    "transparency_ms": 49.38,
+    "alpha_refine_ms": 221.3,
+    "defringe_ms": 181.51,
+    "assembly_ms": 33.69,
+    "preprocess_ms": 64.26,
+    "onnx_inference_ms": 103474.26,
+    "sigmoid_ms": 33.19,
+    "mask_resize_ms": 34.38,
+    "model_load_ms": 13887.77,
+    "warmup_ms": 0.0,
+    "refinement_ms": 502.93
+  },
+  "total_time_ms": 12.502099998528138,
+  "total_time_sec": 0.012502099998528138,
+  "rss_before_mb": 83.93359375,
+  "rss_peak_mb": 84.03515625,
+  "rss_after_mb": 84.03515625,
+  "rss_delta_mb": 0.1,
+  "top_bottlenecks": [
+    {
+      "stage": "Model Inference",
+      "time_ms": 103474.26,
+      "percentage": 827655.0340517347
+    },
+    {
+      "stage": "Model Session Load",
+      "time_ms": 13887.77,
+      "percentage": 111083.49798541842
+    },
+    {
+      "stage": "Alpha Matte Refinement",
+      "time_ms": 221.3,
+      "percentage": 1770.1026229677695
+    },
+    {
+      "stage": "De-Fringing / Halo Removal",
+      "time_ms": 181.51,
+      "percentage": 1451.8360917075454
+    },
+    {
+      "stage": "Image Decode",
+      "time_ms": 68.87,
+      "percentage": 550.8674543325362
+    }
+  ],
+  "mask_metrics": {
+    "fg_pixels": 1178000,
+    "bg_pixels": 394864,
+    "semi_pixels": 5377
+  },
+  "alpha_metrics": {
+    "opaque_pixels": 1172623,
+    "transparent_pixels": 394864,
+    "semi_pixels": 5377
+  },
+  "inpainting_metrics": {
+    "inpaint_time_ms": 0.0,
+    "pixels_sent": 0,
+    "opaque_pixels_modified": 0
+  },
+  "status": "SUCCESS"
+}

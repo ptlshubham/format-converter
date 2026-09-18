@@ -1,0 +1,85 @@
+{
+  "request_id": "BG-20260917-007",
+  "timestamp": "2026-09-17T17:47:40Z",
+  "input_width": 1408,
+  "input_height": 768,
+  "total_pixels": 1081344,
+  "format": "JPEG",
+  "model_info": {
+    "name": "BiRefNet General (FP16 ONNX)",
+    "file": "model_fp16.onnx",
+    "type": "BiRefNet Segmentation",
+    "input_res": "1024 \u00d7 1024",
+    "output_res": "1024 \u00d7 1024",
+    "provider": "CPUExecutionProvider",
+    "device": "CPU",
+    "reused": "YES",
+    "load_ms": 14146.45
+  },
+  "timings_ms": {
+    "decode_ms": 20.59,
+    "inference_ms": 79803.99,
+    "mask_quality_ms": 37.67,
+    "trimap_ms": 29.08,
+    "transparency_ms": 38.63,
+    "alpha_refine_ms": 124.35,
+    "defringe_ms": 136.93,
+    "assembly_ms": 23.75,
+    "preprocess_ms": 54.81,
+    "onnx_inference_ms": 79660.49,
+    "sigmoid_ms": 13.41,
+    "mask_resize_ms": 33.51,
+    "model_load_ms": 14146.45,
+    "warmup_ms": 0.0,
+    "refinement_ms": 328.99
+  },
+  "total_time_ms": 11.209199998120312,
+  "total_time_sec": 0.011209199998120312,
+  "rss_before_mb": 63.44140625,
+  "rss_peak_mb": 63.52734375,
+  "rss_after_mb": 63.52734375,
+  "rss_delta_mb": 0.09,
+  "top_bottlenecks": [
+    {
+      "stage": "Model Inference",
+      "time_ms": 79660.49,
+      "percentage": 710670.6099753631
+    },
+    {
+      "stage": "Model Session Load",
+      "time_ms": 14146.45,
+      "percentage": 126203.9217997024
+    },
+    {
+      "stage": "De-Fringing / Halo Removal",
+      "time_ms": 136.93,
+      "percentage": 1221.5858404075402
+    },
+    {
+      "stage": "Alpha Matte Refinement",
+      "time_ms": 124.35,
+      "percentage": 1109.3566001217966
+    },
+    {
+      "stage": "Image Preprocessing",
+      "time_ms": 54.81,
+      "percentage": 488.97334340712246
+    }
+  ],
+  "mask_metrics": {
+    "fg_pixels": 433663,
+    "bg_pixels": 647681,
+    "semi_pixels": 12192
+  },
+  "alpha_metrics": {
+    "opaque_pixels": 421471,
+    "transparent_pixels": 647681,
+    "semi_pixels": 12192
+  },
+  "inpainting_metrics": {
+    "inpaint_time_ms": 0.0,
+    "pixels_sent": 0,
+    "opaque_pixels_modified": 0
+  },
+  "status": "SUCCESS"
+}

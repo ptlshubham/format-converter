@@ -1,0 +1,81 @@
+{
+  "request_id": "EXP-20260917-597",
+  "timestamp": "2026-09-17T17:15:17Z",
+  "endpoint": "/api/background-remover/export-hd",
+  "operation": "EXPORT_HD_2X",
+  "input_dimensions": "1024x768",
+  "output_dimensions": "2048x1536",
+  "input_format": "RGBA",
+  "output_format": "PNG",
+  "scale": "2\u00d7",
+  "model_info": {
+    "name": "Real-ESRGAN x4plus",
+    "file": "realesrgan_x4plus.onnx",
+    "input_res": "128 \u00d7 128",
+    "precision": "FP32",
+    "provider": "DmlExecutionProvider",
+    "cpu_threads": 4,
+    "reused": "NO",
+    "load_ms": 3531.46,
+    "warmup_ms": 0.0
+  },
+  "provider": "DmlExecutionProvider",
+  "session_reused": false,
+  "session_load_ms": 3531.46,
+  "warmup_ms": 0.0,
+  "stage_timings_ms": {
+    "decode_ms": 0.0,
+    "preprocess_ms": 9.83,
+    "face_detection_ms": 124.15,
+    "tile_prep_ms": 11.02,
+    "model_load_ms": 3531.46,
+    "ai_inference_ms": 9600.54,
+    "tile_recon_ms": 375.42,
+    "downsampling_ms": 55.04,
+    "face_blending_ms": 0.03,
+    "alpha_recombination_ms": 33.83
+  },
+  "stage_percentages": {
+    "Image Decode": 0.0,
+    "Image Preprocessing": 0.07153086232892263,
+    "Face Detection": 0.9034136885183869,
+    "Tile Preparation": 0.0801902444419865,
+    "Model Session Load": 25.697698787395428,
+    "Model Inference": 69.86112970735654,
+    "Tile Reconstruction": 2.7318531368793626,
+    "Downsampling (2x)": 0.40051461470843347,
+    "Face Preservation": 0.00021830375074950953,
+    "Alpha Recombination": 0.2461738629285302,
+    "Output Encoding": 0.0,
+    "Response Preparation": 0.007276791691650318
+  },
+  "inference_statistics": {
+    "calls": 48,
+    "total_ms": 9600.54,
+    "avg_ms": 200.01,
+    "min_ms": 194.86,
+    "max_ms": 365.4,
+    "median_ms": 196.38
+  },
+  "memory_statistics": {
+    "rss_before_mb": 462.69921875,
+    "rss_peak_mb": 462.7109375,
+    "rss_after_mb": 462.7109375,
+    "rss_delta_mb": 0.01
+  },
+  "face_statistics": {
+    "detection_ms": 124.15,
+    "faces_found": 0,
+    "status": "SKIPPED"
+  },
+  "safety_status": "PASS",
+  "lock_statistics": {
+    "status": "RELEASED",
+    "wait_ms": 0.04,
+    "hold_ms": 10213.99
+  },
+  "total_time_ms": 0.33989999792538583,
+  "total_time_sec": 0.00033989999792538583,
+  "performance_status": "\ud83d\udfe2 OPTIMAL EXECUTION SPEED",
+  "status": "SUCCESS"
+}

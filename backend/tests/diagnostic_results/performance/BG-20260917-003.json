@@ -1,0 +1,85 @@
+{
+  "request_id": "BG-20260917-003",
+  "timestamp": "2026-09-17T17:29:51Z",
+  "input_width": 1536,
+  "input_height": 1024,
+  "total_pixels": 1572864,
+  "format": "PNG",
+  "model_info": {
+    "name": "BiRefNet General (FP16 ONNX)",
+    "file": "model_fp16.onnx",
+    "type": "BiRefNet Segmentation",
+    "input_res": "1024 \u00d7 1024",
+    "output_res": "1024 \u00d7 1024",
+    "provider": "CPUExecutionProvider",
+    "device": "CPU",
+    "reused": "YES",
+    "load_ms": 14781.41
+  },
+  "timings_ms": {
+    "decode_ms": 81.64,
+    "inference_ms": 74755.61,
+    "mask_quality_ms": 38.29,
+    "trimap_ms": 44.8,
+    "transparency_ms": 55.04,
+    "alpha_refine_ms": 164.49,
+    "defringe_ms": 189.66,
+    "assembly_ms": 32.76,
+    "preprocess_ms": 76.77,
+    "onnx_inference_ms": 74577.86,
+    "sigmoid_ms": 27.56,
+    "mask_resize_ms": 29.4,
+    "model_load_ms": 14781.41,
+    "warmup_ms": 0.0,
+    "refinement_ms": 453.99
+  },
+  "total_time_ms": 14.194399998814333,
+  "total_time_sec": 0.014194399998814333,
+  "rss_before_mb": 84.6328125,
+  "rss_peak_mb": 84.72265625,
+  "rss_after_mb": 84.72265625,
+  "rss_delta_mb": 0.09,
+  "top_bottlenecks": [
+    {
+      "stage": "Model Inference",
+      "time_ms": 74577.86,
+      "percentage": 525403.3985672486
+    },
+    {
+      "stage": "Model Session Load",
+      "time_ms": 14781.41,
+      "percentage": 104135.50415117723
+    },
+    {
+      "stage": "De-Fringing / Halo Removal",
+      "time_ms": 189.66,
+      "percentage": 1336.1607395581525
+    },
+    {
+      "stage": "Alpha Matte Refinement",
+      "time_ms": 164.49,
+      "percentage": 1158.83728804134
+    },
+    {
+      "stage": "Image Decode",
+      "time_ms": 81.64,
+      "percentage": 575.1563997549699
+    }
+  ],
+  "mask_metrics": {
+    "fg_pixels": 767126,
+    "bg_pixels": 805738,
+    "semi_pixels": 5264
+  },
+  "alpha_metrics": {
+    "opaque_pixels": 761862,
+    "transparent_pixels": 805738,
+    "semi_pixels": 5264
+  },
+  "inpainting_metrics": {
+    "inpaint_time_ms": 0.0,
+    "pixels_sent": 0,
+    "opaque_pixels_modified": 0
+  },
+  "status": "SUCCESS"
+}

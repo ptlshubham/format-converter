@@ -1,0 +1,23 @@
+========================================================================
+EASIEST WAY TO RUN THE PROJECT
+========================================================================
+
+👉 METHOD 1 (ONE-CLICK LAUNCHER - RECOMMENDED)
+   Simply double-click:
+   start-app.bat
+   
+   (This automatically launches the Python Backend, starts Angular,
+    and opens http://localhost:4200 in your browser!)
+
+------------------------------------------------------------------------
+
+👉 METHOD 2 (VIA NPM COMMAND)
+   Open terminal inside the project and run:
+
+   For Backend:
+   npm run backend
+
+   For Frontend (in another terminal):
+   npm start
+
+========================================================================

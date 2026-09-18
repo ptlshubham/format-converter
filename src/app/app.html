@@ -1,0 +1,26 @@
+<div class="app-shell">
+  <!-- Navigation Header (No Logo, No Login/Signup) -->
+  <app-header></app-header>
+
+  <!-- Dynamic Screen Content -->
+  <div class="main-view">
+    @if (state.activeTool() === 'converter') {
+      @switch (state.step()) {
+        @case ('landing') {
+          <app-landing></app-landing>
+        }
+        @case ('workspace') {
+          <app-workspace></app-workspace>
+        }
+        @case ('result') {
+          <app-result-screen></app-result-screen>
+        }
+      }
+    } @else if (state.activeTool() === 'bg-remover') {
+      <app-bg-remover></app-bg-remover>
+    }
+  </div>
+
+  <!-- Standard Footer -->
+  <app-footer></app-footer>
+</div>

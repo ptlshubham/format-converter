@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap');
+
+/* ==========================================================================
+   3D THEME VARIABLES & TOKENS
+   ========================================================================== */
+
+:root {
+  /* Primary Palette */
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-active: #1e40af;
+  --primary-light: #eff6ff;
+  --primary-glow: rgba(37, 99, 235, 0.35);
+  --primary-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  --accent-gradient: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #1d4ed8 100%);
+  --gold-gradient: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+  --checker-color: rgba(0, 0, 0, 0.06);
+
+  /* Light 3D Surfaces & Backgrounds */
+  --bg-page: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-card-hover: #ffffff;
+  --bg-subtle: #f8fafc;
+  --bg-glass: rgba(255, 255, 255, 0.85);
+  --bg-modal: rgba(15, 23, 42, 0.45);
+
+  /* 3D Physical Extrusion & Bevels (Light) */
+  --3d-btn-primary-top: #3b82f6;
+  --3d-btn-primary-edge: #1d4ed8;
+  --3d-btn-primary-shadow: #1e3a8a;
+  
+  --3d-btn-sec-top: #ffffff;
+  --3d-btn-sec-edge: #cbd5e1;
+  --3d-btn-sec-shadow: #94a3b8;
+
+  --3d-card-border: #e2e8f0;
+  --3d-card-bevel: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 -2px 0 rgba(0, 0, 0, 0.04);
+  --3d-card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04), 0 2px 0 #cbd5e1;
+  --3d-card-shadow-hover: 0 20px 40px -10px rgba(37, 99, 235, 0.15), 0 8px 16px rgba(0, 0, 0, 0.06), 0 4px 0 #93c5fd;
+
+  /* Text Colors */
+  --text-main: #0f172a;
+  --text-body: #334155;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+
+  /* Borders */
+  --border-subtle: #e2e8f0;
+  --border-hover: #cbd5e1;
+  --border-focus: #3b82f6;
+
+  /* Status Colors */
+  --success: #10b981;
+  --success-bg: #ecfdf5;
+  --success-border: #a7f3d0;
+  --success-text: #047857;
+
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+  --danger-bg: #fef2f2;
+  --danger-border: #fecaca;
+
+  /* Radii */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 9999px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 2px 6px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 6px 20px -2px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 16px 36px -4px rgba(15, 23, 42, 0.12);
+  --shadow-primary: 0 8px 24px -4px rgba(37, 99, 235, 0.35);
+  --shadow-glow: 0 0 30px rgba(59, 130, 246, 0.25);
+}
+
+/* ==========================================================================
+   3D DARK THEME OVERRIDES (CYBER OBSIDIAN 3D)
+   ========================================================================== */
+
+[data-theme="dark"],
+.dark {
+  /* Primary Palette Dark */
+  --primary: #3b82f6;
+  --primary-hover: #60a5fa;
+  --primary-active: #2563eb;
+  --primary-light: rgba(59, 130, 246, 0.18);
+  --primary-glow: rgba(59, 130, 246, 0.45);
+  --primary-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  --accent-gradient: linear-gradient(135deg, #93c5fd 0%, #60a5fa 50%, #3b82f6 100%);
+  --checker-color: rgba(255, 255, 255, 0.08);
+
+  /* Dark 3D Surfaces & Backgrounds */
+  --bg-page: #080c16;
+  --bg-card: #111827;
+  --bg-card-hover: #162035;
+  --bg-subtle: #172033;
+  --bg-glass: rgba(17, 24, 39, 0.85);
+  --bg-modal: rgba(3, 7, 18, 0.8);
+
+  /* 3D Physical Extrusion & Bevels (Dark) */
+  --3d-btn-primary-top: #3b82f6;
+  --3d-btn-primary-edge: #1d4ed8;
+  --3d-btn-primary-shadow: #0f172a;
+
+  --3d-btn-sec-top: #1e293b;
+  --3d-btn-sec-edge: #0f172a;
+  --3d-btn-sec-shadow: #020617;
+
+  --3d-card-border: #1e293b;
+  --3d-card-bevel: inset 0 1px 0 rgba(255, 255, 255, 0.12), inset 0 -2px 0 rgba(0, 0, 0, 0.4);
+  --3d-card-shadow: 0 14px 36px -4px rgba(0, 0, 0, 0.6), 0 4px 12px rgba(0, 0, 0, 0.4), 0 2px 0 #1e293b;
+  --3d-card-shadow-hover: 0 24px 50px -10px rgba(59, 130, 246, 0.25), 0 8px 20px rgba(0, 0, 0, 0.5), 0 4px 0 #3b82f6;
+
+  /* Text Colors Dark */
+  --text-main: #f8fafc;
+  --text-body: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-light: #64748b;
+
+  /* Borders Dark */
+  --border-subtle: #1e293b;
+  --border-hover: #334155;
+  --border-focus: #60a5fa;
+
+  /* Status Colors Dark */
+  --success: #34d399;
+  --success-bg: rgba(16, 185, 129, 0.18);
+  --success-border: rgba(16, 185, 129, 0.35);
+  --success-text: #6ee7b7;
+
+  --danger: #f87171;
+  --danger-hover: #ef4444;
+  --danger-bg: rgba(239, 68, 68, 0.18);
+  --danger-border: rgba(239, 68, 68, 0.35);
+
+  /* Shadows Dark */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 2px 8px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px -2px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 20px 48px -4px rgba(0, 0, 0, 0.7);
+  --shadow-primary: 0 8px 28px -4px rgba(59, 130, 246, 0.45);
+  --shadow-glow: 0 0 35px rgba(59, 130, 246, 0.3);
+}
+
+/* ==========================================================================
+   GLOBAL RESET & 3D PERSPECTIVE SETUP
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text-body);
+  background-color: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .brand-font {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input, select {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   3D TACTILE BUTTONS (PHYSICAL PUSH BEVEL)
+   ========================================================================== */
+
+.btn-3d-primary {
+  position: relative;
+  background: var(--3d-btn-primary-top);
+  color: #ffffff;
+  font-weight: 800;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 5px 0 var(--3d-btn-primary-edge), 0 10px 20px rgba(37, 99, 235, 0.35);
+  transform: translateY(0);
+  transition: transform 0.12s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-3d-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 var(--3d-btn-primary-edge), 0 14px 28px rgba(37, 99, 235, 0.45);
+}
+
+.btn-3d-primary:active:not(:disabled) {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 var(--3d-btn-primary-edge), 0 4px 10px rgba(37, 99, 235, 0.2);
+}
+
+.btn-3d-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 2px 0 var(--3d-btn-primary-edge);
+}
+
+.btn-3d-secondary {
+  position: relative;
+  background: var(--3d-btn-sec-top);
+  color: var(--text-main);
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 0 var(--3d-btn-sec-edge), 0 6px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(0);
+  transition: transform 0.12s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-3d-secondary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 var(--3d-btn-sec-edge), 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.btn-3d-secondary:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--3d-btn-sec-edge), 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================================================
+   3D FLOATING AMBIENT BACKGROUND & KEYFRAMES
+   ========================================================================== */
+
+@keyframes float3D {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-16px) rotate(4deg) scale(1.03);
+  }
+}
+
+@keyframes float3DAlt {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(14px) rotate(-5deg) scale(0.97);
+  }
+}
+
+@keyframes hologramScan {
+  0% {
+    top: 0%;
+    opacity: 0.8;
+  }
+  50% {
+    top: 100%;
+    opacity: 1;
+  }
+  100% {
+    top: 0%;
+    opacity: 0.8;
+  }
+}
+
+@keyframes rotateSphere {
+  from { transform: rotate3d(1, 1, 0, 0deg); }
+  to { transform: rotate3d(1, 1, 0, 360deg); }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-hover);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-light);
+}

@@ -1,0 +1,89 @@
+{
+  "request_id": "BG-20260918-006",
+  "timestamp": "2026-09-18T14:11:42Z",
+  "endpoint": "/api/background-remover/remove",
+  "operation": "BACKGROUND_REMOVAL",
+  "input_dimensions": "1408x768",
+  "output_dimensions": "1408x768",
+  "input_format": "JPEG",
+  "output_format": "PNG",
+  "scale": "Native",
+  "model_info": {
+    "name": "BiRefNet General (FP16 ONNX)",
+    "file": "model_fp16.onnx",
+    "input_res": "1024 \u00d7 1024",
+    "precision": "FP16",
+    "provider": "CPUExecutionProvider",
+    "cpu_threads": 4,
+    "reused": "YES",
+    "load_ms": 0.0,
+    "warmup_ms": 0.0
+  },
+  "provider": "CPUExecutionProvider",
+  "session_reused": true,
+  "session_load_ms": 0.0,
+  "warmup_ms": 0.0,
+  "stage_timings_ms": {
+    "decode_ms": 28.42,
+    "inference_ms": 61003.3,
+    "mask_quality_ms": 21.16,
+    "trimap_ms": 26.42,
+    "transparency_ms": 30.7,
+    "alpha_refine_ms": 93.45,
+    "defringe_ms": 95.73,
+    "assembly_ms": 16.56,
+    "preprocess_ms": 45.26,
+    "onnx_inference_ms": 60880.96,
+    "sigmoid_ms": 13.47,
+    "mask_resize_ms": 26.36,
+    "model_load_ms": 0.0,
+    "warmup_ms": 0.0,
+    "refinement_ms": 246.3
+  },
+  "stage_percentages": {
+    "Image Decode": 0.04633767034851485,
+    "Image Validation": 0.0001630459899666251,
+    "Image Preprocessing": 0.07379461505889451,
+    "Model Session Load": 0.0,
+    "Model Warmup": 0.0,
+    "Model Inference": 99.26396393318502,
+    "Sigmoid Activation": 0.0219622948485044,
+    "Mask Un-letterbox / Resize": 0.04297892295520237,
+    "Mask Quality Evaluation": 0.03450053147693787,
+    "Trimap Generation": 0.04307675054918235,
+    "Transparency Analysis": 0.05005511891975391,
+    "Alpha Matte Refinement": 0.15236647762381114,
+    "De-Fringing / Halo Removal": 0.15608392619505018,
+    "RGBA Assembly": 0.02700041593847311,
+    "Output Encoding": 0.0,
+    "Response Preparation": 0.0016304598996662507
+  },
+  "inference_statistics": {
+    "calls": 1,
+    "total_ms": 61003.3,
+    "avg_ms": 61003.3,
+    "min_ms": 61003.3,
+    "max_ms": 61003.3
+  },
+  "memory_statistics": {
+    "rss_before_mb": 50.94140625,
+    "rss_peak_mb": 50.94140625,
+    "rss_after_mb": 49.4140625,
+    "rss_delta_mb": -1.53
+  },
+  "face_statistics": {
+    "detection_ms": 0.0,
+    "faces_found": 0,
+    "status": "SKIPPED"
+  },
+  "safety_status": "PASS",
+  "lock_statistics": {
+    "status": "RELEASED",
+    "wait_ms": 0.0,
+    "hold_ms": 0.0
+  },
+  "total_time_ms": 61332.38849999907,
+  "total_time_sec": 61.33238849999907,
+  "performance_status": "\ud83d\udd34 INFERENCE BOTTLENECK",
+  "status": "SUCCESS"
+}

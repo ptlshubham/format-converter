@@ -1,0 +1,36 @@
+{
+  "name": "image-converter",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "backend": "py -3.13 -m uvicorn backend.background_remover.main:app --host 127.0.0.1 --port 8000 --reload",
+    "backend:prod": "py -3.13 -m uvicorn backend.background_remover.main:app --host 127.0.0.1 --port 8000 --workers 1",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "packageManager": "npm@11.19.0",
+  "dependencies": {
+    "@angular/common": "^21.2.0",
+    "@angular/compiler": "^21.2.0",
+    "@angular/core": "^21.2.0",
+    "@angular/forms": "^21.2.0",
+    "@angular/platform-browser": "^21.2.0",
+    "@angular/router": "^21.2.0",
+    "@imgly/background-removal": "^1.7.0",
+    "@types/jszip": "^3.4.0",
+    "jszip": "^3.10.2",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^21.2.23",
+    "@angular/cli": "^21.2.23",
+    "@angular/compiler-cli": "^21.2.0",
+    "@napi-rs/canvas": "^1.0.9",
+    "prettier": "^3.8.1",
+    "typescript": "~5.9.2"
+  }
+}

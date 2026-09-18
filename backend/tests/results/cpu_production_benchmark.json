@@ -1,0 +1,630 @@
+{
+  "timestamp": "2026-09-18T08:48:49Z",
+  "environment": {
+    "os": "Windows 11 (10.0.26100)",
+    "python_version": "3.14.7",
+    "ort_version": "1.24.4",
+    "cpu_name": "AMD Ryzen 5 7535HS with Radeon Graphics",
+    "logical_cpus": 12,
+    "physical_cpus": 6,
+    "total_ram_mb": 7498.79,
+    "test_image": {
+      "path": "C:\\Users\\ompat\\OneDrive\\Desktop\\JPG to WEBP\\test_data\\test_images\\test_1408x768.jpg",
+      "dimensions": "1408x768",
+      "format": "JPEG",
+      "size_bytes": 485004
+    },
+    "model_info": {
+      "name": "BiRefNet General (FP16 ONNX)",
+      "file": "model_fp16.onnx",
+      "input_resolution": "1024x1024",
+      "provider": "CPUExecutionProvider"
+    }
+  },
+  "single_inference_lock_active": true,
+  "idle_timeout_seconds": 90,
+  "cold_load_times_ms": {
+    "4": 15645.31,
+    "6": 13448.13,
+    "8": 13101.22
+  },
+  "results_by_thread": {
+    "4": [
+      {
+        "threads": 4,
+        "run": 1,
+        "status": "SUCCESS",
+        "request_id": "BG-20260918-002",
+        "wall_clock_ms": 64876.7,
+        "total_processing_ms": 63910.67,
+        "stage_timings_ms": {
+          "image_decode_ms": 26.94,
+          "image_validation_ms": 0.0,
+          "image_preprocess_ms": 43.88,
+          "model_session_load_ms": 0.0,
+          "model_warmup_ms": 0.0,
+          "model_inference_ms": 63535.9,
+          "sigmoid_activation_ms": 15.11,
+          "mask_resize_ms": 27.04,
+          "mask_quality_eval_ms": 25.47,
+          "trimap_generation_ms": 35.05,
+          "transparency_analysis_ms": 36.23,
+          "alpha_matte_refinement_ms": 100.77,
+          "defringing_ms": 119.31,
+          "rgba_assembly_ms": 19.52,
+          "output_encoding_ms": 937.23,
+          "response_prep_ms": 966.03
+        },
+        "telemetry": {
+          "inference_pct_of_total": 99.41,
+          "post_proc_pct_of_total": 0.53,
+          "process_rss_before_mb": 41.96,
+          "process_rss_peak_mb": 3148.5,
+          "process_rss_after_mb": 39.25,
+          "process_rss_delta_mb": 3106.54,
+          "cpu_before_pct": 22.4,
+          "cpu_peak_pct": 1606.8,
+          "cpu_avg_pct": 420.73,
+          "cpu_after_pct": 47.2,
+          "avail_ram_before_mb": 3117.34
+        }
+      },
+      {
+        "threads": 4,
+        "run": 2,
+        "status": "SUCCESS",
+        "request_id": "BG-20260918-003",
+        "wall_clock_ms": 76392.07,
+        "total_processing_ms": 75436.49,
+        "stage_timings_ms": {
+          "image_decode_ms": 36.91,
+          "image_validation_ms": 0.0,
+          "image_preprocess_ms": 65.08,
+          "model_session_load_ms": 0.0,
+          "model_warmup_ms": 0.0,
+          "model_inference_ms": 75060.09,
+          "sigmoid_activation_ms": 12.51,
+          "mask_resize_ms": 25.34,
+          "mask_quality_eval_ms": 26.27,
+          "trimap_generation_ms": 33.59,
+          "transparency_analysis_ms": 36.74,
+          "alpha_matte_refinement_ms": 105.2,
+          "defringing_ms": 108.02,
+          "rgba_assembly_ms": 17.75,
+          "output_encoding_ms": 926.81,
+          "response_prep_ms": 955.58
+        },
+        "telemetry": {
+          "inference_pct_of_total": 99.5,
+          "post_proc_pct_of_total": 0.43,
+          "process_rss_before_mb": 43.03,
+          "process_rss_peak_mb": 3069.05,
+          "process_rss_after_mb": 41.17,
+          "process_rss_delta_mb": 3026.02,
+          "cpu_before_pct": 72.2,
+          "cpu_peak_pct": 1358.4,
+          "cpu_avg_pct": 413.78,
+          "cpu_after_pct": 21.6,
+          "avail_ram_before_mb": 2544.26
+        }
+      },
+      {
+        "threads": 4,
+        "run": 3,
+        "status": "SUCCESS",
+        "request_id": "BG-20260918-004",
+        "wall_clock_ms": 67479.97,
+        "total_processing_ms": 66533.0,
+        "stage_timings_ms": {
+          "image_decode_ms": 29.81,
+          "image_validation_ms": 0.0,
+          "image_preprocess_ms": 62.95,
+          "model_session_load_ms": 0.0,
+          "model_warmup_ms": 0.0,
+          "model_inference_ms": 66157.88,
+          "sigmoid_activation_ms": 12.94,
+          "mask_resize_ms": 21.11,
+          "mask_quality_eval_ms": 23.74,
+          "trimap_generation_ms": 31.32,
+          "transparency_analysis_ms": 37.32,
+          "alpha_matte_refinement_ms": 107.58,
+          "defringing_ms": 115.35,
+          "rgba_assembly_ms": 18.8,
+          "output_encoding_ms": 908.64,
+          "response_prep_ms": 946.97
+        },
+        "telemetry": {
+          "inference_pct_of_total": 99.44,
+          "post_proc_pct_of_total": 0.5,
+          "process_rss_before_mb": 44.8,
+          "process_rss_peak_mb": 3525.92,
+          "process_rss_after_mb": 41.53,
+          "process_rss_delta_mb": 3481.12,
+          "cpu_before_pct": 28.2,
+          "cpu_peak_pct": 1338.2,
+          "cpu_avg_pct": 420.29,
+          "cpu_after_pct": 20.0,
+          "avail_ram_before_mb": 2440.77
+        }
+      }
+    ],
+    "6": [
+      {
+        "threads": 6,
+        "run": 1,
+        "status": "SUCCESS",
+        "request_id": "BG-20260918-006",
+        "wall_clock_ms": 62250.52,
+        "total_processing_ms": 61325.98,
+        "stage_timings_ms": {
+          "image_decode_ms": 28.42,
+          "image_validation_ms": 0.0,
+          "image_preprocess_ms": 45.26,
+          "model_session_load_ms": 0.0,
+          "model_warmup_ms": 0.0,
+          "model_inference_ms": 61003.3,
+          "sigmoid_activation_ms": 13.47,
+          "mask_resize_ms": 26.36,
+          "mask_quality_eval_ms": 21.16,
+          "trimap_generation_ms": 26.42,
+          "transparency_analysis_ms": 30.7,
+          "alpha_matte_refinement_ms": 93.45,
+          "defringing_ms": 95.73,
+          "rgba_assembly_ms": 16.56,
+          "output_encoding_ms": 888.84,
+          "response_prep_ms": 924.54
+        },
+        "telemetry": {
+          "inference_pct_of_total": 99.47,
+          "post_proc_pct_of_total": 0.46,
+          "process_rss_before_mb": 43.85,
+          "process_rss_peak_mb": 3161.79,
+          "process_rss_after_mb": 42.77,
+          "process_rss_delta_mb": 3117.94,
+          "cpu_before_pct": 26.6,
+          "cpu_peak_pct": 1371.0,
+          "cpu_avg_pct": 564.55,
+          "cpu_after_pct": 13.5,
+          "avail_ram_before_mb": 2437.1
+        }
+      },
+      {
+        "threads": 6,
+        "run": 2,
+        "status": "SUCCESS",
+        "request_id": "BG-20260918-007",
+        "wall_clock_ms": 58809.7,
+        "total_processing_ms": 57872.18,
+        "stage_timings_ms": {
+          "image_decode_ms": 31.87,
+          "image_validation_ms": 0.0,
+          "image_preprocess_ms": 46.31,
+          "model_session_load_ms": 0.0,
+          "model_warmup_ms": 0.0,
+          "model_inference_ms": 57496.9,
+          "sigmoid_activation_ms": 13.61,
+          "mask_resize_ms": 26.39,
+          "mask_quality_eval_ms": 28.45,
+          "trimap_generation_ms": 37.04,
+          "transparency_analysis_ms": 38.05,
+          "alpha_matte_refinement_ms": 106.0,
+          "defringing_ms": 105.65,
+          "rgba_assembly_ms": 16.22,
+          "output_encoding_ms": 897.5,
+          "response_prep_ms": 937.52
+        },
+        "telemetry": {
+          "inference_pct_of_total": 99.35,
+          "post_proc_pct_of_total": 0.57,
+          "process_rss_before_mb": 46.36,
+          "process_rss_peak_mb": 3346.17,
+          "process_rss_after_mb": 42.66,
+          "process_rss_delta_mb": 3299.81,
+          "cpu_before_pct": 15.2,
+          "cpu_peak_pct": 1077.5,
+          "cpu_avg_pct": 568.1,
+          "cpu_after_pct": 20.8,
+          "avail_ram_before_mb": 3315.37
+        }
+      },
+      {
+        "threads": 6,
+        "run": 3,
+        "status": "SUCCESS",
+        "request_id": "BG-20260918-008",
+        "wall_clock_ms": 60891.49,
+        "total_processing_ms": 59902.67,
+        "stage_timings_ms": {
+          "image_decode_ms": 31.34,
+          "image_validation_ms": 0.0,
+          "image_preprocess_ms": 54.99,
+          "model_session_load_ms": 0.0,
+          "model_warmup_ms": 0.0,
+          "model_inference_ms": 59524.98,
+          "sigmoid_activation_ms": 12.47,
+          "mask_resize_ms": 24.9,
+          "mask_quality_eval_ms": 24.44,
+          "trimap_generation_ms": 32.62,
+          "transparency_analysis_ms": 35.02,
+          "alpha_matte_refinement_ms": 111.24,
+          "defringing_ms": 112.75,
+          "rgba_assembly_ms": 18.67,
+          "output_encoding_ms": 944.97,
+          "response_prep_ms": 988.82
+        },
+        "telemetry": {
+          "inference_pct_of_total": 99.37,
+          "post_proc_pct_of_total": 0.56,
+          "process_rss_before_mb": 46.25,
+          "process_rss_peak_mb": 3340.63,
+          "process_rss_after_mb": 41.2,
+          "process_rss_delta_mb": 3294.38,
+          "cpu_before_pct": 25.9,
+          "cpu_peak_pct": 1205.3,
+          "cpu_avg_pct": 553.86,
+          "cpu_after_pct": 39.5,
+          "avail_ram_before_mb": 3196.2
+        }
+      }
+    ],
+    "8": [
+      {
+        "threads": 8,
+        "run": 1,
+        "status": "SUCCESS",
+        "request_id": "BG-20260918-010",
+        "wall_clock_ms": 74310.62,
+        "total_processing_ms": 73141.7,
+        "stage_timings_ms": {
+          "image_decode_ms": 37.74,
+          "image_validation_ms": 0.0,
+          "image_preprocess_ms": 66.68,
+          "model_session_load_ms": 0.0,
+          "model_warmup_ms": 0.0,
+          "model_inference_ms": 72646.01,
+          "sigmoid_activation_ms": 17.53,
+          "mask_resize_ms": 29.93,
+          "mask_quality_eval_ms": 36.84,
+          "trimap_generation_ms": 43.3,
+          "transparency_analysis_ms": 45.28,
+          "alpha_matte_refinement_ms": 140.5,
+          "defringing_ms": 138.37,
+          "rgba_assembly_ms": 27.43,
+          "output_encoding_ms": 1127.35,
+          "response_prep_ms": 1168.92
+        },
+        "telemetry": {
+          "inference_pct_of_total": 99.32,
+          "post_proc_pct_of_total": 0.59,
+          "process_rss_before_mb": 42.72,
+          "process_rss_peak_mb": 3483.07,
+          "process_rss_after_mb": 42.75,
+          "process_rss_delta_mb": 3440.35,
+          "cpu_before_pct": 23.0,
+          "cpu_peak_pct": 1501.3,
+          "cpu_avg_pct": 595.8,
+          "cpu_after_pct": 23.4,
+          "avail_ram_before_mb": 2639.84
+        }
+      },
+      {
+        "threads": 8,
+        "run": 2,
+        "status": "SUCCESS",
+        "request_id": "BG-20260918-011",
+        "wall_clock_ms": 77695.45,
+        "total_processing_ms": 76550.37,
+        "stage_timings_ms": {
+          "image_decode_ms": 41.51,
+          "image_validation_ms": 0.0,
+          "image_preprocess_ms": 74.67,
+          "model_session_load_ms": 0.0,
+          "model_warmup_ms": 0.0,
+          "model_inference_ms": 76072.84,
+          "sigmoid_activation_ms": 18.11,
+          "mask_resize_ms": 31.08,
+          "mask_quality_eval_ms": 35.01,
+          "trimap_generation_ms": 40.8,
+          "transparency_analysis_ms": 43.05,
+          "alpha_matte_refinement_ms": 129.57,
+          "defringing_ms": 141.8,
+          "rgba_assembly_ms": 26.19,
+          "output_encoding_ms": 1097.77,
+          "response_prep_ms": 1145.08
+        },
+        "telemetry": {
+          "inference_pct_of_total": 99.38,
+          "post_proc_pct_of_total": 0.54,
+          "process_rss_before_mb": 46.37,
+          "process_rss_peak_mb": 2773.66,
+          "process_rss_after_mb": 42.66,
+          "process_rss_delta_mb": 2727.29,
+          "cpu_before_pct": 41.2,
+          "cpu_peak_pct": 1517.6,
+          "cpu_avg_pct": 555.19,
+          "cpu_after_pct": 28.6,
+          "avail_ram_before_mb": 2268.93
+        }
+      },
+      {
+        "threads": 8,
+        "run": 3,
+        "status": "SUCCESS",
+        "request_id": "BG-20260918-012",
+        "wall_clock_ms": 70772.21,
+        "total_processing_ms": 69383.37,
+        "stage_timings_ms": {
+          "image_decode_ms": 41.81,
+          "image_validation_ms": 0.0,
+          "image_preprocess_ms": 68.65,
+          "model_session_load_ms": 0.0,
+          "model_warmup_ms": 0.0,
+          "model_inference_ms": 68870.79,
+          "sigmoid_activation_ms": 20.08,
+          "mask_resize_ms": 30.61,
+          "mask_quality_eval_ms": 38.45,
+          "trimap_generation_ms": 45.48,
+          "transparency_analysis_ms": 44.16,
+          "alpha_matte_refinement_ms": 143.31,
+          "defringing_ms": 153.69,
+          "rgba_assembly_ms": 26.9,
+          "output_encoding_ms": 1344.11,
+          "response_prep_ms": 1388.84
+        },
+        "telemetry": {
+          "inference_pct_of_total": 99.26,
+          "post_proc_pct_of_total": 0.65,
+          "process_rss_before_mb": 46.26,
+          "process_rss_peak_mb": 3179.3,
+          "process_rss_after_mb": 42.28,
+          "process_rss_delta_mb": 3133.04,
+          "cpu_before_pct": 23.1,
+          "cpu_peak_pct": 1513.6,
+          "cpu_avg_pct": 609.32,
+          "cpu_after_pct": 70.8,
+          "avail_ram_before_mb": 3136.57
+        }
+      }
+    ]
+  },
+  "quality_validations": {
+    "4": [
+      {
+        "run": 1,
+        "output_dimensions": "1408x768",
+        "channels": 4,
+        "format": "PNG",
+        "has_nan": false,
+        "has_inf": false,
+        "alpha_stats": {
+          "min": 0,
+          "max": 255,
+          "mean": 61.9197,
+          "std": 106.8594,
+          "non_zero_pixels": 286721
+        },
+        "comparison_to_4t_ref": {
+          "max_pixel_diff": 0,
+          "mean_pixel_diff": 0.0,
+          "exact_match": true
+        }
+      },
+      {
+        "run": 2,
+        "output_dimensions": "1408x768",
+        "channels": 4,
+        "format": "PNG",
+        "has_nan": false,
+        "has_inf": false,
+        "alpha_stats": {
+          "min": 0,
+          "max": 255,
+          "mean": 61.9197,
+          "std": 106.8594,
+          "non_zero_pixels": 286721
+        },
+        "comparison_to_4t_ref": {
+          "max_pixel_diff": 0,
+          "mean_pixel_diff": 0.0,
+          "exact_match": true
+        }
+      },
+      {
+        "run": 3,
+        "output_dimensions": "1408x768",
+        "channels": 4,
+        "format": "PNG",
+        "has_nan": false,
+        "has_inf": false,
+        "alpha_stats": {
+          "min": 0,
+          "max": 255,
+          "mean": 61.9197,
+          "std": 106.8594,
+          "non_zero_pixels": 286721
+        },
+        "comparison_to_4t_ref": {
+          "max_pixel_diff": 0,
+          "mean_pixel_diff": 0.0,
+          "exact_match": true
+        }
+      }
+    ],
+    "6": [
+      {
+        "run": 1,
+        "output_dimensions": "1408x768",
+        "channels": 4,
+        "format": "PNG",
+        "has_nan": false,
+        "has_inf": false,
+        "alpha_stats": {
+          "min": 0,
+          "max": 255,
+          "mean": 61.9197,
+          "std": 106.8594,
+          "non_zero_pixels": 286721
+        },
+        "comparison_to_4t_ref": {
+          "max_pixel_diff": 0,
+          "mean_pixel_diff": 0.0,
+          "exact_match": true
+        }
+      },
+      {
+        "run": 2,
+        "output_dimensions": "1408x768",
+        "channels": 4,
+        "format": "PNG",
+        "has_nan": false,
+        "has_inf": false,
+        "alpha_stats": {
+          "min": 0,
+          "max": 255,
+          "mean": 61.9197,
+          "std": 106.8594,
+          "non_zero_pixels": 286721
+        },
+        "comparison_to_4t_ref": {
+          "max_pixel_diff": 0,
+          "mean_pixel_diff": 0.0,
+          "exact_match": true
+        }
+      },
+      {
+        "run": 3,
+        "output_dimensions": "1408x768",
+        "channels": 4,
+        "format": "PNG",
+        "has_nan": false,
+        "has_inf": false,
+        "alpha_stats": {
+          "min": 0,
+          "max": 255,
+          "mean": 61.9197,
+          "std": 106.8594,
+          "non_zero_pixels": 286721
+        },
+        "comparison_to_4t_ref": {
+          "max_pixel_diff": 0,
+          "mean_pixel_diff": 0.0,
+          "exact_match": true
+        }
+      }
+    ],
+    "8": [
+      {
+        "run": 1,
+        "output_dimensions": "1408x768",
+        "channels": 4,
+        "format": "PNG",
+        "has_nan": false,
+        "has_inf": false,
+        "alpha_stats": {
+          "min": 0,
+          "max": 255,
+          "mean": 61.9197,
+          "std": 106.8594,
+          "non_zero_pixels": 286721
+        },
+        "comparison_to_4t_ref": {
+          "max_pixel_diff": 0,
+          "mean_pixel_diff": 0.0,
+          "exact_match": true
+        }
+      },
+      {
+        "run": 2,
+        "output_dimensions": "1408x768",
+        "channels": 4,
+        "format": "PNG",
+        "has_nan": false,
+        "has_inf": false,
+        "alpha_stats": {
+          "min": 0,
+          "max": 255,
+          "mean": 61.9197,
+          "std": 106.8594,
+          "non_zero_pixels": 286721
+        },
+        "comparison_to_4t_ref": {
+          "max_pixel_diff": 0,
+          "mean_pixel_diff": 0.0,
+          "exact_match": true
+        }
+      },
+      {
+        "run": 3,
+        "output_dimensions": "1408x768",
+        "channels": 4,
+        "format": "PNG",
+        "has_nan": false,
+        "has_inf": false,
+        "alpha_stats": {
+          "min": 0,
+          "max": 255,
+          "mean": 61.9197,
+          "std": 106.8594,
+          "non_zero_pixels": 286721
+        },
+        "comparison_to_4t_ref": {
+          "max_pixel_diff": 0,
+          "mean_pixel_diff": 0.0,
+          "exact_match": true
+        }
+      }
+    ]
+  },
+  "averages_summary": {
+    "4": {
+      "avg_inference_ms": 68251.29,
+      "median_inference_ms": 66157.88,
+      "avg_total_ms": 68626.72,
+      "median_total_ms": 66533.0,
+      "avg_peak_rss_mb": 3247.82,
+      "max_peak_rss_mb": 3525.92,
+      "avg_cpu_peak_pct": 1434.47,
+      "avg_inference_sec": 68.251,
+      "avg_total_sec": 68.627
+    },
+    "6": {
+      "avg_inference_ms": 59341.73,
+      "median_inference_ms": 59524.98,
+      "avg_total_ms": 59700.28,
+      "median_total_ms": 59902.67,
+      "avg_peak_rss_mb": 3282.86,
+      "max_peak_rss_mb": 3346.17,
+      "avg_cpu_peak_pct": 1217.93,
+      "avg_inference_sec": 59.342,
+      "avg_total_sec": 59.7
+    },
+    "8": {
+      "avg_inference_ms": 72529.88,
+      "median_inference_ms": 72646.01,
+      "avg_total_ms": 73025.15,
+      "median_total_ms": 73141.7,
+      "avg_peak_rss_mb": 3145.34,
+      "max_peak_rss_mb": 3483.07,
+      "avg_cpu_peak_pct": 1510.83,
+      "avg_inference_sec": 72.53,
+      "avg_total_sec": 73.025
+    }
+  },
+  "comparisons_vs_4threads": {
+    "6t_vs_4t": {
+      "inference_improvement_pct": 13.05,
+      "total_processing_improvement_pct": 13.01,
+      "peak_rss_change_pct": 1.08,
+      "cpu_utilization_diff_pct": -216.54,
+      "speedup_factor": 1.15
+    },
+    "8t_vs_4t": {
+      "inference_improvement_pct": -6.27,
+      "total_processing_improvement_pct": -6.41,
+      "peak_rss_change_pct": -3.16,
+      "cpu_utilization_diff_pct": 76.36,
+      "speedup_factor": 0.94
+    }
+  },
+  "true_peak_ram_mb": 3525.92
+}

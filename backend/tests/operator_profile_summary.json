@@ -1,0 +1,143 @@
+{
+  "total_inference_ms": 79862.4,
+  "total_operator_time_ms": 79124.43,
+  "top_operator_types": [
+    {
+      "op_type": "Gemm",
+      "total_ms": 22901.15,
+      "pct": 28.94,
+      "count": 192
+    },
+    {
+      "op_type": "Sum",
+      "total_ms": 15989.02,
+      "pct": 20.21,
+      "count": 20
+    },
+    {
+      "op_type": "Mul",
+      "total_ms": 7908.5,
+      "pct": 10.0,
+      "count": 347
+    },
+    {
+      "op_type": "Transpose",
+      "total_ms": 7500.82,
+      "pct": 9.48,
+      "count": 360
+    },
+    {
+      "op_type": "Cast",
+      "total_ms": 5996.87,
+      "pct": 7.58,
+      "count": 1348
+    },
+    {
+      "op_type": "Conv",
+      "total_ms": 5656.88,
+      "pct": 7.15,
+      "count": 102
+    },
+    {
+      "op_type": "Add",
+      "total_ms": 2017.91,
+      "pct": 2.55,
+      "count": 279
+    },
+    {
+      "op_type": "MatMul",
+      "total_ms": 1651.39,
+      "pct": 2.09,
+      "count": 102
+    },
+    {
+      "op_type": "GatherND",
+      "total_ms": 1400.45,
+      "pct": 1.77,
+      "count": 80
+    },
+    {
+      "op_type": "Resize",
+      "total_ms": 1039.05,
+      "pct": 1.31,
+      "count": 22
+    }
+  ],
+  "top_slowest_nodes": [
+    {
+      "name": "/decoder/decoder_block1/dec_att/aspp_deforms.2/atrous_conv/Sum_kernel_time",
+      "op_type": "Sum",
+      "dur_ms": 15338.517
+    },
+    {
+      "name": "/decoder/decoder_block1/dec_att/aspp_deforms.2/atrous_conv/Transpose_8_kernel_time",
+      "op_type": "Transpose",
+      "dur_ms": 2566.124
+    },
+    {
+      "name": "/decoder/decoder_block1/dec_att/aspp_deforms.2/atrous_conv/Mul_7_kernel_time",
+      "op_type": "Mul",
+      "dur_ms": 2032.402
+    },
+    {
+      "name": "/decoder/decoder_block1/dec_att/aspp_deforms.2/atrous_conv/Mul_6_kernel_time",
+      "op_type": "Mul",
+      "dur_ms": 1450.871
+    },
+    {
+      "name": "/decoder/decoder_block1/dec_att/aspp_deforms.2/atrous_conv/Conv_kernel_time",
+      "op_type": "Conv",
+      "dur_ms": 1236.68
+    },
+    {
+      "name": "InsertedPrecisionFreeCast_/decoder/decoder_block1/dec_att/aspp_deforms.2/atrous_conv/Mul_9_output_0_kernel_time",
+      "op_type": "Cast",
+      "dur_ms": 1201.612
+    },
+    {
+      "name": "/decoder/decoder_block1/dec_att/aspp_deforms.1/atrous_conv/Transpose_7_kernel_time",
+      "op_type": "Transpose",
+      "dur_ms": 845.727
+    },
+    {
+      "name": "/decoder/decoder_block1/dec_att/aspp_deforms.2/atrous_conv/Mul_9_kernel_time",
+      "op_type": "Mul",
+      "dur_ms": 788.434
+    },
+    {
+      "name": "/decoder/Resize_7_kernel_time",
+      "op_type": "Resize",
+      "dur_ms": 767.255
+    },
+    {
+      "name": "/decoder/decoder_block1/dec_att/aspp_deforms.2/atrous_conv/Transpose_1_kernel_time",
+      "op_type": "Transpose",
+      "dur_ms": 745.845
+    },
+    {
+      "name": "/decoder/ipt_blk1/conv_out/Conv_kernel_time",
+      "op_type": "Conv",
+      "dur_ms": 659.204
+    },
+    {
+      "name": "/decoder/decoder_block1/dec_att/aspp_deforms.1/atrous_conv/Mul_5_kernel_time",
+      "op_type": "Mul",
+      "dur_ms": 657.808
+    },
+    {
+      "name": "/decoder/decoder_block1/dec_att/aspp_deforms.2/atrous_conv/GatherND_kernel_time",
+      "op_type": "GatherND",
+      "dur_ms": 644.128
+    },
+    {
+      "name": "/bb/layers.2/blocks.0/attn/qkv/MatMul/MatMulAddFusion_kernel_time",
+      "op_type": "Gemm",
+      "dur_ms": 588.985
+    },
+    {
+      "name": "/decoder/decoder_block1/dec_att/aspp_deforms.2/atrous_conv/Mul_5_kernel_time",
+      "op_type": "Mul",
+      "dur_ms": 487.352
+    }
+  ]
+}

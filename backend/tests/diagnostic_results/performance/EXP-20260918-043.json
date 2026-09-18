@@ -1,0 +1,81 @@
+{
+  "request_id": "EXP-20260918-043",
+  "timestamp": "2026-09-18T09:54:43Z",
+  "endpoint": "/api/background-remover/export-hd",
+  "operation": "EXPORT_HD_4X",
+  "input_dimensions": "1536x1024",
+  "output_dimensions": "6144x4096",
+  "input_format": "RGBA",
+  "output_format": "PNG",
+  "scale": "4\u00d7",
+  "model_info": {
+    "name": "Real-ESRGAN x4plus",
+    "file": "realesrgan_x4plus.onnx",
+    "input_res": "128 \u00d7 128",
+    "precision": "FP32",
+    "provider": "DmlExecutionProvider",
+    "cpu_threads": 4,
+    "reused": "NO",
+    "load_ms": 4172.18,
+    "warmup_ms": 0.0
+  },
+  "provider": "DmlExecutionProvider",
+  "session_reused": false,
+  "session_load_ms": 4172.18,
+  "warmup_ms": 0.0,
+  "stage_timings_ms": {
+    "decode_ms": 0.0,
+    "preprocess_ms": 712.19,
+    "face_detection_ms": 213.38,
+    "tile_prep_ms": 26.11,
+    "model_load_ms": 4172.18,
+    "ai_inference_ms": 18185.36,
+    "tile_recon_ms": 620.59,
+    "downsampling_ms": 0.07,
+    "face_blending_ms": 726.76,
+    "alpha_recombination_ms": 344.35
+  },
+  "stage_percentages": {
+    "Image Decode": 0.0,
+    "Image Preprocessing": 2.8485332567527624,
+    "Face Detection": 0.8534520652156088,
+    "Tile Preparation": 0.10443168723769586,
+    "Model Session Load": 16.687391683621982,
+    "Model Inference": 72.73565024224071,
+    "Tile Reconstruction": 2.4821624198713783,
+    "Downsampling (2x)": 0.0002799777137739836,
+    "Face Preservation": 2.9068086180340043,
+    "Alpha Recombination": 1.3772903676867323,
+    "Output Encoding": 0.0,
+    "Response Preparation": 0.003999681625342623
+  },
+  "inference_statistics": {
+    "calls": 96,
+    "total_ms": 18185.36,
+    "avg_ms": 189.43,
+    "min_ms": 186.57,
+    "max_ms": 410.94,
+    "median_ms": 187.03
+  },
+  "memory_statistics": {
+    "rss_before_mb": 657.28515625,
+    "rss_peak_mb": 657.28515625,
+    "rss_after_mb": 657.28515625,
+    "rss_delta_mb": 0.0
+  },
+  "face_statistics": {
+    "detection_ms": 213.38,
+    "faces_found": 9,
+    "status": "COMPLETED (70% AI / 30% Conventional)"
+  },
+  "safety_status": "PASS",
+  "lock_statistics": {
+    "status": "RELEASED",
+    "wait_ms": 0.01,
+    "hold_ms": 20838.04
+  },
+  "total_time_ms": 0.3863000001729233,
+  "total_time_sec": 0.0003863000001729233,
+  "performance_status": "\ud83d\udd34 INFERENCE BOTTLENECK",
+  "status": "SUCCESS"
+}
