@@ -1,6 +1,6 @@
 # Model Licenses & Attribution
 
-This document details the official licenses, sources, and attributions for the AI segmentation models used in the Background Removal Engine.
+This document details the official licenses, sources, and attributions for the AI models used in the Image Processing Suite.
 
 ---
 
@@ -10,7 +10,6 @@ This document details the official licenses, sources, and attributions for the A
 - **Model Source**: [ZhengPeng7/BiRefNet](https://github.com/ZhengPeng7/BiRefNet) / [onnx-community/BiRefNet-ONNX](https://huggingface.co/onnx-community/BiRefNet-ONNX)
 - **Model License**: **MIT License**
 - **Model File**: `backend/models/segmentation/birefnet-general/model_fp16.onnx`
-- **Original Model URL**: https://github.com/ZhengPeng7/BiRefNet
 - **Required Attribution**:
   ```
   Copyright (c) 2024 Peng Zheng, Dehong Gao, et al.
@@ -20,15 +19,29 @@ This document details the official licenses, sources, and attributions for the A
 
 ---
 
-## 2. U²-Net (Rollback & Hardware Protection Model)
-- **Model Name**: U²-Net (Nested U-Structure for Salient Object Detection)
-- **Model License**: **Apache License 2.0**
-- **Model File**: `backend/models/u2net.onnx`
-- **Purpose**: Hardware memory constraint fallback protection for systems with limited RAM/VRAM.
-- **Original Model URL**: https://github.com/xuebinqin/U-2-Net
+## 2. Real-ESRGAN x4plus (Super Resolution Upscaling)
+- **Model Name**: Real-ESRGAN x4plus
+- **Model Architecture**: Real-ESRGAN Deep Convolutional Neural Network
+- **Model Source**: [xinntao/Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN)
+- **Model License**: **BSD 3-Clause License**
+- **Model File**: `backend/models/super_resolution/realesrgan_x4plus.onnx`
 - **Required Attribution**:
   ```
-  Copyright (c) 2020 Xuebin Qin
+  Copyright (c) 2021, Xintao Wang
+  Licensed under the BSD 3-Clause License.
+  Reference: Wang et al., "Real-ESRGAN: Training Real-World Blind Image Restoration with Pure Synthetic Data", ICCVW 2021.
+  ```
+
+---
+
+## 3. YuNet Face Detector (Facial Landmark Detection for ROI Preservation)
+- **Model Name**: YuNet Face Detector
+- **Model Architecture**: YuNet Light-Weight Face Detector
+- **Model Source**: [opencv/opencv_zoo](https://github.com/opencv/opencv_zoo/tree/main/models/face_detection_yunet)
+- **Model License**: **Apache License 2.0**
+- **Model File**: `backend/models/face_detector/face_detection_yunet_2023mar.onnx`
+- **Required Attribution**:
+  ```
+  Copyright (c) OpenCV Zoo Contributors
   Licensed under the Apache License 2.0.
-  Reference: Qin et al., "U2-Net: Going Deeper with Nested U-Structure for Salient Object Detection", Pattern Recognition 2020.
   ```
