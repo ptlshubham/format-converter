@@ -6,8 +6,8 @@ Target: the Kardlyz VPS (Ubuntu 22.04, Python 3.10, Apache 2.4, 4 vCPU / 16 GB, 
 | --- | --- |
 | Code | `/home/ubuntu/kardlyz-image-ai`, a clone of `https://github.com/ptlshubham/format-converter` (`main`) |
 | Process | PM2 app `kardlyz-image-ai` ([`ecosystem.config.js`](ecosystem.config.js)), one uvicorn worker on `127.0.0.1:8110` |
-| CPU / priority | pinned to cores 2–3 (`taskset -c 2,3`), `nice -n 10` |
-| Memory | about 3.5 GB peak per image; PM2 restarts it above 5 GB; models unload after 90 s idle |
+| CPU / priority | all 4 cores at the lowest priority (`nice -n 19`): the API and the other apps always come first |
+| Memory | above 6.7 GB peak per image on this box (Linux, onnxruntime 1.23); PM2 restarts it above 10 GB; models unload after 90 s idle |
 | Public URL | `https://api.kardlyz.com/image-ai/api/background-remover` (Apache strips `/image-ai/`, [`apache-image-ai.conf`](apache-image-ai.conf)) |
 | Callers | `https://kardlyz.com`, `https://www.kardlyz.com`, and `http://localhost:4200` for the owner's local testing |
 
@@ -29,7 +29,7 @@ All are set in `ecosystem.config.js`. With none set, the service runs in develop
 | `BG_MODEL_IDLE_TIMEOUT`, `BG_SR_IDLE_TIMEOUT` | unset (90 s) | `90` | Seconds before an idle model is unloaded. Keep the default on this shared box |
 | `DEBUG_BACKGROUND_REMOVAL` | unset | off | Never set it in production |
 
-`OMP_NUM_THREADS`, `MKL_NUM_THREADS` and `OPENBLAS_NUM_THREADS` are `2` to match the two pinned cores.
+No thread-count variables are set: ONNX Runtime sets its own 4 threads in code, and `nice -n 19` keeps them behind every other app.
 
 ## First install
 
@@ -39,7 +39,7 @@ Run as `ubuntu`. Steps 7–8 need `sudo`.
    ```bash
    python3 --version                         # 3.10.x
    python3 -m venv --help >/dev/null || sudo apt install -y python3.10-venv
-   command -v taskset nice                   # /usr/bin/taskset, /usr/bin/nice
+   command -v nice                           # /usr/bin/nice
    ss -ltnp | grep ':8110 ' || echo "8110 is free"
    free -h                                   # needs ~4 GB available
    df -h /home                               # ~2 GB for the venv and models
@@ -79,8 +79,7 @@ Run as `ubuntu`. Steps 7–8 need `sudo`.
    pm2 save                                  # saves the whole current list; check `pm2 ls` first
    pm2 logs kardlyz-image-ai --lines 30      # look for "Image AI settings: env=production, ..."
    curl -s http://127.0.0.1:8110/api/background-remover/health    # {"status":"online",...}
-   taskset -cp $(pm2 pid kardlyz-image-ai)   # current affinity list: 2,3
-   ps -o pid,ni,rss,cmd -p $(pm2 pid kardlyz-image-ai)   # NI 10
+   ps -o pid,ni,rss,cmd -p $(pm2 pid kardlyz-image-ai)   # NI 19
    ```
    Never run a bare `pm2 start`, and never change the other apps' PM2 entries.
 
@@ -157,7 +156,7 @@ If `deploy/apache-image-ai.conf` changed, re-apply it by hand (step 7). It is ne
 ## Notes
 
 - **One worker, always.** Each worker would load its own copy of the model and its own inference lock, and the rate limiter is in-process.
-- **The CPU cap is a pin, not a quota.** ONNX Runtime still starts 4 inference threads (`min(4, os.cpu_count())` in `segmentation/model_manager.py`, and 4 in `processing/super_resolution.py`). Both files are protected (`docs/ENGINE_FREEZE_RULES.md`), so the threads share 2 cores. Expect each image to take somewhat longer than the 4-core benchmarks. Sizing the threads from the CPU affinity needs owner approval and a benchmark.
+- **The CPU limit is a priority, not a pin.** ONNX Runtime starts 4 inference threads (`min(4, os.cpu_count())` in `segmentation/model_manager.py`, and 4 in `processing/super_resolution.py`; both files are protected, see `docs/ENGINE_FREEZE_RULES.md`). A first setup pinned them to 2 cores with `taskset`, and one image then ran past 150 s. At `nice -n 19` on all 4 cores, a 518x512 portrait took 99 s end to end on 13 Oct 2026, and the Kardlyz API's slowest of 49 probes during it was 73 ms.
 - **PM2's `max_memory_restart` is checked periodically.** It is a backstop, not a hard limit. If the box gets tight, add swap or move the service to its own VPS.
 - **Limits come in three layers.** The page refuses files over 25 MB. Apache refuses bodies over 26 MB on `/image-ai/`, with an HTML 413 that the page reports as unreachable. The service refuses over 26 MB on `/remove` and over 20 MB on `/export-hd` with a JSON 413. A second image while one is processing gets 429 (*"currently processing another image"*), as does a client over the rate limit. The Kardlyz page shows both as "busy, try again in a minute".
 - **Logs:** `logs/image-ai-out.log` and `logs/image-ai-error.log` in the repo folder (ignored by git). The engine prints a timing report for every request. If `pm2-logrotate` is not installed on the box, watch the log size.

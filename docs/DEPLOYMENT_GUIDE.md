@@ -41,7 +41,7 @@ export const environment = {
 ## 3. Backend Production Deployment (FastAPI)
 
 ### Kardlyz production (current)
-The live service runs on the Kardlyz VPS under PM2 as `kardlyz-image-ai` (`127.0.0.1:8110`, pinned to 2 cores), behind Apache at `https://api.kardlyz.com/image-ai/api/background-remover`. Follow **[`deploy/README.md`](../deploy/README.md)** for first install, updates, smoke tests and rollback. The deploy kit is `deploy/ecosystem.config.js` (PM2) and `deploy/apache-image-ai.conf` (vhost lines). On a server without git-lfs, `backend/models/download_models.py` fetches and verifies the three ONNX files.
+The live service runs on the Kardlyz VPS under PM2 as `kardlyz-image-ai` (`127.0.0.1:8110`, all 4 cores at `nice -n 19`), behind Apache at `https://api.kardlyz.com/image-ai/api/background-remover`. Follow **[`deploy/README.md`](../deploy/README.md)** for first install, updates, smoke tests and rollback. The deploy kit is `deploy/ecosystem.config.js` (PM2) and `deploy/apache-image-ai.conf` (vhost lines). On a server without git-lfs, `backend/models/download_models.py` fetches and verifies the three ONNX files.
 
 The service reads these environment variables (`backend/background_remover/settings.py`). Unset, it behaves as before for local development:
 
