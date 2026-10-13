@@ -13,6 +13,8 @@ from datetime import datetime
 from typing import Dict, Any, List, Optional
 import numpy as np
 
+from ..background_remover.settings import settings
+
 # Ensure Windows terminal handles UTF-8 emojis and bar graphics smoothly
 if sys.platform == "win32":
     try:
@@ -27,6 +29,15 @@ PERFORMANCE_DIR = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
     "tests", "diagnostic_results", "performance"
 )
+
+
+def _save_json(request_id: str, data: Dict[str, Any]) -> None:
+    """Writes one request's metrics to PERFORMANCE_DIR, unless IMAGE_AI_PROFILER_LOG is off."""
+    if not settings.profiler_log:
+        return
+    os.makedirs(PERFORMANCE_DIR, exist_ok=True)
+    with open(os.path.join(PERFORMANCE_DIR, f"{request_id}.json"), "w") as f:
+        json.dump(data, f, indent=2)
 
 
 class LiveTerminalProfiler:
@@ -473,8 +484,6 @@ class LiveTerminalProfiler:
             self._safe_print(l)
 
         # Save Performance JSON
-        os.makedirs(PERFORMANCE_DIR, exist_ok=True)
-        json_path = os.path.join(PERFORMANCE_DIR, f"{self.request_id}.json")
         perf_data = {
             "request_id": self.request_id,
             "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -508,8 +517,7 @@ class LiveTerminalProfiler:
             "status": "SUCCESS",
         }
 
-        with open(json_path, "w") as f:
-            json.dump(perf_data, f, indent=2)
+        _save_json(self.request_id, perf_data)
 
         return perf_data
 
@@ -536,8 +544,6 @@ class LiveTerminalProfiler:
         for l in lines:
             self._safe_print(l)
 
-        os.makedirs(PERFORMANCE_DIR, exist_ok=True)
-        json_path = os.path.join(PERFORMANCE_DIR, f"{self.request_id}.json")
         err_data = {
             "request_id": self.request_id,
             "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -550,8 +556,7 @@ class LiveTerminalProfiler:
             "elapsed_time_ms": elapsed_ms,
         }
 
-        with open(json_path, "w") as f:
-            json.dump(err_data, f, indent=2)
+        _save_json(self.request_id, err_data)
 
         return err_data
 

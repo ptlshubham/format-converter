@@ -40,6 +40,25 @@ export const environment = {
 
 ## 3. Backend Production Deployment (FastAPI)
 
+### Kardlyz production (current)
+The live service runs on the Kardlyz VPS under PM2 as `kardlyz-image-ai` (`127.0.0.1:8110`, pinned to 2 cores), behind Apache at `https://api.kardlyz.com/image-ai/api/background-remover`. Follow **[`deploy/README.md`](../deploy/README.md)** for first install, updates, smoke tests and rollback. The deploy kit is `deploy/ecosystem.config.js` (PM2) and `deploy/apache-image-ai.conf` (vhost lines). On a server without git-lfs, `backend/models/download_models.py` fetches and verifies the three ONNX files.
+
+The service reads these environment variables (`backend/background_remover/settings.py`). Unset, it behaves as before for local development:
+
+| Variable | Default | Purpose |
+| --- | --- | --- |
+| `IMAGE_AI_ENV` | `development` | `production` hides `/docs`, `/redoc`, `/openapi.json` and does not mount `/status`, `/debug/latest`, `/diagnostics`, `/composite` |
+| `IMAGE_AI_ALLOWED_ORIGINS` | `http://localhost:4200,http://127.0.0.1:4200` | CORS allow-list (no `*`, no credentials) |
+| `IMAGE_AI_RATE_LIMIT_PER_MINUTE` | `6` | `POST /remove` + `/export-hd` per client IP per minute; `0` = off |
+| `IMAGE_AI_MAX_UPLOAD_MB` | `26` | Body cap for `/remove` (413 above it) |
+| `IMAGE_AI_MAX_JSON_MB` | `20` | Body cap for `/export-hd` (413 above it) |
+| `IMAGE_AI_PROFILER_LOG` | `on` (development) / `off` (production) | Per-request profiler JSON files |
+| `IMAGE_AI_TRUSTED_PROXIES` | `127.0.0.1,::1` | Peers whose `X-Forwarded-For` is trusted |
+
+Running the Angular dev server on a port other than 4200? Add it to `IMAGE_AI_ALLOWED_ORIGINS`, e.g. `http://localhost:4300`.
+
+The sections below are the original generic notes. Where they disagree with the code (model file names, Python version), the code and `deploy/README.md` win.
+
 ### Prerequisites
 - **Python**: 3.13 (64-bit)
 - **NVIDIA Driver**: Version 550+ (if deploying with GPU)

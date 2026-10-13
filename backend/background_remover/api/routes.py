@@ -1,10 +1,12 @@
 """
 FastAPI Routes for Background Remover
-Endpoints:
+Public endpoints (`router`):
+- GET /api/background-remover/health: Health check & engine metadata
 - POST /api/background-remover/remove: Process image and return transparent base64 image + metadata + diagnostics
+- POST /api/background-remover/export-hd: AI Super-Resolution export (HD 2x / Ultra HD 4x)
+Development-only endpoints (`dev_router`, not mounted when IMAGE_AI_ENV=production):
 - POST /api/background-remover/diagnostics: Development diagnostic endpoint returning pipeline stages + metrics
 - POST /api/background-remover/composite: Composite image with custom background and return exported base64
-- GET /api/background-remover/health: Health check & engine metadata
 - GET /api/background-remover/status: System status & device info
 - GET /api/background-remover/debug/latest: Latest diagnostic file paths
 """
@@ -28,6 +30,9 @@ from ...processing.super_resolution import SuperResolutionManager
 from ...processing.phase10_profiler import LiveTerminalProfiler
 
 router = APIRouter(prefix="/api/background-remover", tags=["Background Remover"])
+# Internals and debugging aids (process memory, lock state, file paths, a second
+# inference route). main.py mounts this only outside production.
+dev_router = APIRouter(prefix="/api/background-remover", tags=["Background Remover (development)"])
 
 
 class CompositeRequest(BaseModel):
@@ -63,7 +68,7 @@ def health_check():
     }
 
 
-@router.get("/status")
+@dev_router.get("/status")
 def get_system_status():
     mgr = ModelManager.get_instance()
     return {
@@ -85,7 +90,7 @@ def get_system_status():
     }
 
 
-@router.get("/debug/latest")
+@dev_router.get("/debug/latest")
 def get_debug_latest_endpoint():
     return get_latest_debug_info()
 
@@ -190,7 +195,7 @@ async def remove_background(
         mgr.schedule_idle_unload()
 
 
-@router.post("/diagnostics")
+@dev_router.post("/diagnostics")
 async def run_diagnostics_endpoint(
     file: UploadFile = File(...),
     sensitivity: float = Form(10.0),
@@ -259,7 +264,7 @@ async def run_diagnostics_endpoint(
         mgr.schedule_idle_unload()
 
 
-@router.post("/composite")
+@dev_router.post("/composite")
 async def composite_endpoint(request: CompositeRequest):
     """
     Composites a transparent cutout base64 image onto a custom background (solid, gradient, or transparent)

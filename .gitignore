@@ -56,3 +56,8 @@ __pycache__/
 .venv/
 venv/
 *.env
+
+# Image AI service runtime output (generated per request; never commit)
+backend/tests/diagnostic_results/performance/
+backend/debug/
+backend/models/**/*.part
